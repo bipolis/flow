@@ -63,7 +63,7 @@ import org.slf4j.LoggerFactory;
  * @author Vaadin Ltd
  * @since 1.2
  */
-@Component(immediate = true)
+@Component(immediate = true, service = Object.class)
 public class VaadinBundleTracker extends BundleTracker<Bundle> {
 
     private final Bundle flowServerBundle;

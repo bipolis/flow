@@ -356,6 +356,10 @@
 
                 <module>test-root-context</module>
 
+
+                <!--  OSGi Tests -->
+                <module>test-osgi</module>
+
                 <!-- tests are disabled in this module, this reference is for maven version plugin -->
                 <module>test-no-theme</module>
             </modules>

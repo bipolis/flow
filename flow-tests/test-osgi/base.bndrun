@@ -1,0 +1,48 @@
+-runstartlevel: \
+    order=sortbynameversion,\
+    begin=-1
+    
+-tester: biz.aQute.tester.junit-platform
+
+-runvm: ${def;argLine}
+
+#-resolve.effective: active
+-runproperties: \
+	org.apache.felix.http.host=localhost,\
+	org.osgi.service.http.port=*,\
+	org.osgi.framework.bootdelegation=sun.reflect
+
+-runblacklist: \
+	bnd.identity;id='osgi.core',\
+	bnd.identity;id='osgi.cmpn'
+
+
+-runsystempackages: \
+	org.slf4j;version=1.7.25,\
+	org.slf4j.helpers;version=1.7.25,\
+	org.slf4j.spi;version=1.7.25
+-runpath: \
+	ch.qos.logback.classic,\
+	ch.qos.logback.core,\
+	org.apache.felix.logback,\
+	slf4j.api
+	
+-runrequires.testcase: \
+	bnd.identity;id='${project.artifactId}-tests',\
+	bnd.identity;id='${project.artifactId}'
+
+
+-runrequires.testlauncher: \
+	bnd.identity;id='junit-jupiter-engine',\
+	bnd.identity;id='junit-platform-launcher'
+
+-runrequires: \
+	bnd.identity;id='com.vaadin.flow.client',\
+	bnd.identity;id='com.vaadin.flow.server',\
+	bnd.identity;id='com.vaadin.flow.push',\
+	bnd.identity;id='com.vaadin.flow.theme.lumo'
+
+
+# Please try and keep this sorted to make diffing more consistent
+-runee: JavaSE-11
+-runfw: org.eclipse.osgi
